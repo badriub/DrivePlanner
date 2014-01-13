@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CitySearchController.h
 //  DrivePlanner
 //
 //  Created by Badari Madhav on 1/7/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface CitySearchController : UISearchDisplayController
+
+@property (nonatomic, strong) NSArray* cities;
 
 @end

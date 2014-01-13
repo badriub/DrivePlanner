@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0457ED18832EA200E26D60 /* SelectedCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0457EC18832EA200E26D60 /* SelectedCityViewController.m */; };
 		0C92AF13187CD66F0033FA5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C92AF12187CD66F0033FA5E /* Foundation.framework */; };
 		0C92AF15187CD66F0033FA5E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C92AF14187CD66F0033FA5E /* CoreGraphics.framework */; };
 		0C92AF17187CD66F0033FA5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C92AF16187CD66F0033FA5E /* UIKit.framework */; };
@@ -14,13 +15,17 @@
 		0C92AF1F187CD66F0033FA5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF1E187CD66F0033FA5E /* main.m */; };
 		0C92AF23187CD66F0033FA5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF22187CD66F0033FA5E /* AppDelegate.m */; };
 		0C92AF26187CD66F0033FA5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C92AF24187CD66F0033FA5E /* Main.storyboard */; };
-		0C92AF29187CD66F0033FA5E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF28187CD66F0033FA5E /* ViewController.m */; };
 		0C92AF2B187CD66F0033FA5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C92AF2A187CD66F0033FA5E /* Images.xcassets */; };
 		0C92AF32187CD66F0033FA5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C92AF31187CD66F0033FA5E /* XCTest.framework */; };
 		0C92AF33187CD66F0033FA5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C92AF12187CD66F0033FA5E /* Foundation.framework */; };
 		0C92AF34187CD66F0033FA5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C92AF16187CD66F0033FA5E /* UIKit.framework */; };
 		0C92AF3C187CD66F0033FA5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C92AF3A187CD66F0033FA5E /* InfoPlist.strings */; };
 		0C92AF3E187CD66F0033FA5E /* DrivePlannerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF3D187CD66F0033FA5E /* DrivePlannerTests.m */; };
+		0C92AF4C187CD9C70033FA5E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF4B187CD9C70033FA5E /* City.m */; };
+		0C92AF4F187CDE8D0033FA5E /* CityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF4E187CDE8D0033FA5E /* CityTableViewController.m */; };
+		0C92AF56187CE2010033FA5E /* GeoBytesCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF55187CE2010033FA5E /* GeoBytesCommunicator.m */; };
+		0C92AF59187CE40C0033FA5E /* CityBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF58187CE40C0033FA5E /* CityBuilder.m */; };
+		0C92AF5D187CE67D0033FA5E /* CityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C92AF5C187CE67D0033FA5E /* CityManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0457EB18832EA200E26D60 /* SelectedCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCityViewController.h; sourceTree = "<group>"; };
+		0C0457EC18832EA200E26D60 /* SelectedCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCityViewController.m; sourceTree = "<group>"; };
 		0C92AF0F187CD66F0033FA5E /* DrivePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrivePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C92AF12187CD66F0033FA5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0C92AF14187CD66F0033FA5E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +52,24 @@
 		0C92AF21187CD66F0033FA5E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0C92AF22187CD66F0033FA5E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0C92AF25187CD66F0033FA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0C92AF27187CD66F0033FA5E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0C92AF28187CD66F0033FA5E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0C92AF2A187CD66F0033FA5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0C92AF30187CD66F0033FA5E /* DrivePlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrivePlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C92AF31187CD66F0033FA5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0C92AF39187CD66F0033FA5E /* DrivePlannerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DrivePlannerTests-Info.plist"; sourceTree = "<group>"; };
 		0C92AF3B187CD66F0033FA5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0C92AF3D187CD66F0033FA5E /* DrivePlannerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrivePlannerTests.m; sourceTree = "<group>"; };
+		0C92AF4A187CD9C70033FA5E /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		0C92AF4B187CD9C70033FA5E /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		0C92AF4D187CDE8D0033FA5E /* CityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewController.h; sourceTree = "<group>"; };
+		0C92AF4E187CDE8D0033FA5E /* CityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewController.m; sourceTree = "<group>"; };
+		0C92AF53187CE1B70033FA5E /* GeoBytesCommunicatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoBytesCommunicatorDelegate.h; sourceTree = "<group>"; };
+		0C92AF54187CE2010033FA5E /* GeoBytesCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoBytesCommunicator.h; sourceTree = "<group>"; };
+		0C92AF55187CE2010033FA5E /* GeoBytesCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoBytesCommunicator.m; sourceTree = "<group>"; };
+		0C92AF57187CE40C0033FA5E /* CityBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityBuilder.h; sourceTree = "<group>"; };
+		0C92AF58187CE40C0033FA5E /* CityBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityBuilder.m; sourceTree = "<group>"; };
+		0C92AF5A187CE6250033FA5E /* CityManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityManagerDelegate.h; sourceTree = "<group>"; };
+		0C92AF5B187CE67D0033FA5E /* CityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityManager.h; sourceTree = "<group>"; };
+		0C92AF5C187CE67D0033FA5E /* CityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +129,23 @@
 		0C92AF18187CD66F0033FA5E /* DrivePlanner */ = {
 			isa = PBXGroup;
 			children = (
+				0C92AF4A187CD9C70033FA5E /* City.h */,
+				0C92AF4B187CD9C70033FA5E /* City.m */,
 				0C92AF21187CD66F0033FA5E /* AppDelegate.h */,
 				0C92AF22187CD66F0033FA5E /* AppDelegate.m */,
+				0C92AF53187CE1B70033FA5E /* GeoBytesCommunicatorDelegate.h */,
+				0C92AF54187CE2010033FA5E /* GeoBytesCommunicator.h */,
+				0C92AF55187CE2010033FA5E /* GeoBytesCommunicator.m */,
+				0C92AF57187CE40C0033FA5E /* CityBuilder.h */,
+				0C92AF58187CE40C0033FA5E /* CityBuilder.m */,
+				0C92AF5A187CE6250033FA5E /* CityManagerDelegate.h */,
+				0C92AF5B187CE67D0033FA5E /* CityManager.h */,
+				0C92AF5C187CE67D0033FA5E /* CityManager.m */,
 				0C92AF24187CD66F0033FA5E /* Main.storyboard */,
-				0C92AF27187CD66F0033FA5E /* ViewController.h */,
-				0C92AF28187CD66F0033FA5E /* ViewController.m */,
+				0C0457EB18832EA200E26D60 /* SelectedCityViewController.h */,
+				0C0457EC18832EA200E26D60 /* SelectedCityViewController.m */,
+				0C92AF4D187CDE8D0033FA5E /* CityTableViewController.h */,
+				0C92AF4E187CDE8D0033FA5E /* CityTableViewController.m */,
 				0C92AF2A187CD66F0033FA5E /* Images.xcassets */,
 				0C92AF19187CD66F0033FA5E /* Supporting Files */,
 			);
@@ -249,7 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C92AF29187CD66F0033FA5E /* ViewController.m in Sources */,
+				0C0457ED18832EA200E26D60 /* SelectedCityViewController.m in Sources */,
+				0C92AF4C187CD9C70033FA5E /* City.m in Sources */,
+				0C92AF4F187CDE8D0033FA5E /* CityTableViewController.m in Sources */,
+				0C92AF59187CE40C0033FA5E /* CityBuilder.m in Sources */,
+				0C92AF56187CE2010033FA5E /* GeoBytesCommunicator.m in Sources */,
+				0C92AF5D187CE67D0033FA5E /* CityManager.m in Sources */,
 				0C92AF23187CD66F0033FA5E /* AppDelegate.m in Sources */,
 				0C92AF1F187CD66F0033FA5E /* main.m in Sources */,
 			);
@@ -460,6 +494,7 @@
 				0C92AF43187CD66F0033FA5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C92AF44187CD66F0033FA5E /* Build configuration list for PBXNativeTarget "DrivePlannerTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +503,7 @@
 				0C92AF46187CD66F0033FA5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
