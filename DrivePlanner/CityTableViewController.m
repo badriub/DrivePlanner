@@ -24,27 +24,39 @@
 NSArray *searchResults;
 NSArray *_cities;
 CityManager *_manager;
+NSString* searchKeyword;
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    SelectedCityViewController* dvc = [segue destinationViewController];
-    NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-    NSString* cityName = [[_cities objectAtIndex:indexPath.row] name];
-    
-    NSLog(@"selected city is %@", cityName);
-    if(dvc.selectedCities == nil) {
-        dvc.selectedCities = [[NSMutableArray alloc]initWithObjects:cityName, nil];
-    } else {
-        [dvc.selectedCities addObject:cityName];
+#pragma mark - UISearchDisplayController delegate methods
+
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+//    NSLog(@"finished editing");
+//        [self filterContentForSearchText:[searchBar text]
+//                                   scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+//                                          objectAtIndex:[self.searchDisplayController.searchBar
+//                                                         selectedScopeButtonIndex]]];
+//}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    if([searchString length] > 3) {
+        [self filterContentForSearchText:searchString
+                                   scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                          objectAtIndex:[self.searchDisplayController.searchBar
+                                                         selectedScopeButtonIndex]]];
     }
-
     
-    [dvc setName:cityName];
-    NSLog(@"Count is %i",[dvc.selectedCities count]);
+    return YES;
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    [_manager fetchCities:searchText];
 }
 
 - (void)didReceiveCities:(NSArray *)cities {
     _cities = cities;
-    [self.tableView reloadData];
+    [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
 - (void)fetchingCitiesFailedWithError:(NSError *)error {
@@ -69,7 +81,7 @@ CityManager *_manager;
     _manager.communicator.delegate = _manager;
     _manager.delegate = self;
     
-    [_manager fetchCities:@"Boston"];
+    //[_manager fetchCities:@"Boston"];
     
     selectedCities = [[NSMutableArray alloc]init];
 
@@ -91,62 +103,97 @@ CityManager *_manager;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 1;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return @"Selected cities";
-    } else {
-        return @"Cities";
-    }
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    //if (section == 0) {
+//        return @"Selected cities";
+////    } else {
+////        return @"Cities";
+////    }
+//}
 
 -(BOOL)isCitySelected:(NSString *)city {
     return [selectedCities containsObject:city];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 1) {
-         NSString* cityName = [[_cities objectAtIndex:indexPath.row] name];
+//    if(indexPath.section == 1) {
+         NSString* cityName = [_cities objectAtIndex:indexPath.row];
         if(![self isCitySelected:cityName]) {
             [selectedCities addObject:cityName];
         }
+        [self.searchDisplayController setActive:NO];
+
         [self.tableView reloadData];
-    }
+//    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0) {
-        return [selectedCities count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        NSLog(@"Number of cities found is %i", [_cities count]);
+        return [_cities count];
     } else {
-        if (tableView == self.searchDisplayController.searchResultsTableView) {
-            return [searchResults count];
-            
-        } else {
-            return [_cities count];
-        }
+        NSLog(@"selected cities count is %i", [selectedCities count]);
+        return [selectedCities count];
     }
+    
+//    if(section == 0) {
+//        return [selectedCities count];
+//    } else {
+//        if (tableView == self.searchDisplayController.searchResultsTableView) {
+//            return [searchResults count];
+//        } else {
+//            return [_cities count];
+//        }
+//    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier1 = @"Cell1";
+
+    UITableViewCell *cell;
+    
+    
     
     // Configure the cell...
     if(nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        if (tableView == self.searchDisplayController.searchResultsTableView) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier1];
+
+        }else {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+
+        }
     }
     
-    if(indexPath.section == 0) {
-        [cell.textLabel setText:[selectedCities objectAtIndex:indexPath.row]];
-
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        //City* city = _cities[indexPath.row];
+        [cell.textLabel setText:_cities[indexPath.row]];
     } else {
-        City* city = _cities[indexPath.row];
-        [cell.textLabel setText:city.name];
+        NSLog(@"else");
+//        City* city = _cities[indexPath.row];s
+//        [cell.textLabel setText:city.name];
+        [cell.textLabel setText:[selectedCities objectAtIndex:indexPath.row]];
     }
+    
+    
+//    if(indexPath.section == 0) {
+//        [cell.textLabel setText:[selectedCities objectAtIndex:indexPath.row]];
+//
+//    } else {
+//        if (tableView == self.searchDisplayController.searchResultsTableView) {
+//            cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+//        } else {
+//            City* city = _cities[indexPath.row];
+//            [cell.textLabel setText:city.name];
+//        }
+//        
+//    }
     
     
     

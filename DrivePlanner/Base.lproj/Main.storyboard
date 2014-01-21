@@ -17,7 +17,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="MgC-Kh-kJD" id="mIM-3l-Dd1"/>
+                                <outlet property="delegate" destination="eni-2V-mqU" id="p2s-3L-Nf1"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -44,11 +44,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3x-3f-au6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="eni-2V-mqU">
                     <connections>
-                        <outlet property="delegate" destination="MgC-Kh-kJD" id="LOQ-SM-m7g"/>
+                        <outlet property="delegate" destination="MgC-Kh-kJD" id="tdm-aP-jKa"/>
                         <outlet property="searchBar" destination="FGx-bH-0Al" id="IFo-Ef-aWn"/>
-                        <outlet property="searchContentsController" destination="MgC-Kh-kJD" id="SPV-dA-bj0"/>
-                        <outlet property="searchResultsDataSource" destination="MgC-Kh-kJD" id="67X-oT-q2J"/>
-                        <outlet property="searchResultsDelegate" destination="MgC-Kh-kJD" id="nd4-hW-yUZ"/>
+                        <outlet property="searchContentsController" destination="MgC-Kh-kJD" id="r2k-nO-vZP"/>
+                        <outlet property="searchResultsDataSource" destination="MgC-Kh-kJD" id="BfS-Ny-pqg"/>
+                        <outlet property="searchResultsDelegate" destination="MgC-Kh-kJD" id="EsR-8I-1CF"/>
                     </connections>
                 </searchDisplayController>
             </objects>

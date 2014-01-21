@@ -22,18 +22,17 @@
     
     NSMutableArray *cities = [[NSMutableArray alloc] init];
     
+    
     NSLog(@"Count %d", parsedObject.count);
     NSInteger index = 0;
     for (NSDictionary *cityName in parsedObject) {
-        if(index > 10) {
-            break;
-        }
-        City *city = [[City alloc] init];
+       
+//        City *city = [[City alloc] init];
+//        
+//        [city setName:(NSString*)cityName];
         
-        [city setName:(NSString*)cityName];
+        [cities addObject:cityName];
         
-        [cities addObject:city];
-        index++;
     }
     
     return cities;
